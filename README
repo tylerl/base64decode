@@ -1,0 +1,15 @@
+Base64 decoding routine written entirely in bash, with no external dependencies.
+
+Usage:
+  base64decode < input > output
+
+This code is absurly inefficient; it runs aproximately 12,000 times slower than
+the perl-based decoder. The difference is that this code doesn't require you to
+install any external programs, which may be important in some cases.
+
+To decode using perl instead, use the following:
+
+base64decode() {
+   perl -e 'use MIME::Base64 qw(decode_base64);$/=undef;print decode_base64(<>);'
+}
+
